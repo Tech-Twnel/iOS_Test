@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'XMPP_Test' target in the 'XMPP_Test' project
+// Prefix header for all source files of the 'iOS_Test' target in the 'iOS_Test' project
 //
 
 #import <Availability.h>

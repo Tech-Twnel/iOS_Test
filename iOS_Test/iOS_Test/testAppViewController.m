@@ -1,18 +1,18 @@
 //
-//  xmppViewController.m
-//  XMPP_Test
+//  testAppViewController.m
+//  iOS_Test
 //
 //  Created by Lion User on 03/04/2013.
 //  Copyright (c) 2013 Twnel. All rights reserved.
 //
 
-#import "xmppViewController.h"
+#import "testAppViewController.h"
 
-@interface xmppViewController ()
+@interface testAppViewController ()
 
 @end
 
-@implementation xmppViewController
+@implementation testAppViewController
 
 - (void)viewDidLoad
 {

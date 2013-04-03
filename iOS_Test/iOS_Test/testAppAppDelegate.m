@@ -1,14 +1,14 @@
 //
-//  xmppAppDelegate.m
-//  XMPP_Test
+//  testAppAppDelegate.m
+//  iOS_Test
 //
 //  Created by Lion User on 03/04/2013.
 //  Copyright (c) 2013 Twnel. All rights reserved.
 //
 
-#import "xmppAppDelegate.h"
+#import "testAppAppDelegate.h"
 
-@implementation xmppAppDelegate
+@implementation testAppAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

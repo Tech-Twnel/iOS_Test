@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface testAppViewController : UIViewController
+@interface xmppViewController : UIViewController
 
 @end

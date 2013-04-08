@@ -17,7 +17,8 @@
 		CE0C49AC170C992D000EBB04 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE0C49AB170C992D000EBB04 /* Default@2x.png */; };
 		CE0C49AE170C992D000EBB04 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE0C49AD170C992D000EBB04 /* Default-568h@2x.png */; };
 		CE0C49B1170C992D000EBB04 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0C49AF170C992D000EBB04 /* MainStoryboard.storyboard */; };
-		CE0C49B4170C992D000EBB04 /* testAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0C49B3170C992D000EBB04 /* testAppViewController.m */; };
+		CE0C49B4170C992D000EBB04 /* xmppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0C49B3170C992D000EBB04 /* xmppViewController.m */; };
+		CE33B26F170F478F00B99DB9 /* KeyChaiHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = CE33B26E170F478F00B99DB9 /* KeyChaiHandler.m */; };
 		CE735685170E2CC50034CD95 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE735646170E24FB0034CD95 /* CFNetwork.framework */; };
 		CE735687170E2CD60034CD95 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE735686170E2CD60034CD95 /* Security.framework */; };
 		CE7356E8170E2E670034CD95 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7356C9170E2E670034CD95 /* GCDAsyncSocket.m */; };
@@ -75,8 +76,10 @@
 		CE0C49AB170C992D000EBB04 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CE0C49AD170C992D000EBB04 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CE0C49B0170C992D000EBB04 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		CE0C49B2170C992D000EBB04 /* testAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testAppViewController.h; sourceTree = "<group>"; };
-		CE0C49B3170C992D000EBB04 /* testAppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testAppViewController.m; sourceTree = "<group>"; };
+		CE0C49B2170C992D000EBB04 /* xmppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xmppViewController.h; sourceTree = "<group>"; };
+		CE0C49B3170C992D000EBB04 /* xmppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xmppViewController.m; sourceTree = "<group>"; };
+		CE33B26D170F478F00B99DB9 /* KeyChaiHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyChaiHandler.h; path = model/KeyChaiHandler.h; sourceTree = "<group>"; };
+		CE33B26E170F478F00B99DB9 /* KeyChaiHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyChaiHandler.m; path = model/KeyChaiHandler.m; sourceTree = "<group>"; };
 		CE735646170E24FB0034CD95 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CE735686170E2CD60034CD95 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CE7356C8170E2E660034CD95 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
@@ -106,6 +109,9 @@
 		CE7356E4170E2E670034CD95 /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
 		CE7356E5170E2E670034CD95 /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
 		CE7356E7170E2E670034CD95 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
+		CE9ADECB170F6C87006C8744 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = model/Constants.h; sourceTree = "<group>"; };
+		CEA144FB170F40E9009C3A9A /* Chat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Chat.h; path = model/Chat.h; sourceTree = "<group>"; };
+		CEA144FC170F40E9009C3A9A /* Chat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Chat.m; path = model/Chat.m; sourceTree = "<group>"; };
 		CEC6CF80170E308400500E1A /* idn-int.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "idn-int.h"; path = "lib/libidn/idn-int.h"; sourceTree = "<group>"; };
 		CEC6CF81170E308400500E1A /* libidn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libidn.a; path = lib/libidn/libidn.a; sourceTree = "<group>"; };
 		CEC6CF82170E308400500E1A /* stringprep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stringprep.h; path = lib/libidn/stringprep.h; sourceTree = "<group>"; };
@@ -217,8 +223,9 @@
 				CE0C49A6170C992C000EBB04 /* testAppAppDelegate.h */,
 				CE0C49A7170C992C000EBB04 /* testAppAppDelegate.m */,
 				CE0C49AF170C992D000EBB04 /* MainStoryboard.storyboard */,
-				CE0C49B2170C992D000EBB04 /* testAppViewController.h */,
-				CE0C49B3170C992D000EBB04 /* testAppViewController.m */,
+				CE0C49B2170C992D000EBB04 /* xmppViewController.h */,
+				CE0C49B3170C992D000EBB04 /* xmppViewController.m */,
+				CEA144F2170F1C10009C3A9A /* model */,
 				CE0C499E170C992C000EBB04 /* Supporting Files */,
 			);
 			path = iOS_Test;
@@ -324,6 +331,18 @@
 				CE7356E7170E2E670034CD95 /* DDXMLPrivate.h */,
 			);
 			path = Private;
+			sourceTree = "<group>";
+		};
+		CEA144F2170F1C10009C3A9A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				CEA144FB170F40E9009C3A9A /* Chat.h */,
+				CEA144FC170F40E9009C3A9A /* Chat.m */,
+				CE33B26D170F478F00B99DB9 /* KeyChaiHandler.h */,
+				CE33B26E170F478F00B99DB9 /* KeyChaiHandler.m */,
+				CE9ADECB170F6C87006C8744 /* Constants.h */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		CEC6CF83170E308F00500E1A /* libidn */ = {
@@ -547,7 +566,7 @@
 			files = (
 				CE0C49A4170C992C000EBB04 /* main.m in Sources */,
 				CE0C49A8170C992C000EBB04 /* testAppAppDelegate.m in Sources */,
-				CE0C49B4170C992D000EBB04 /* testAppViewController.m in Sources */,
+				CE0C49B4170C992D000EBB04 /* xmppViewController.m in Sources */,
 				CE7356E8170E2E670034CD95 /* GCDAsyncSocket.m in Sources */,
 				CE7356E9170E2E670034CD95 /* DDAbstractDatabaseLogger.m in Sources */,
 				CE7356EA170E2E670034CD95 /* DDASLLogger.m in Sources */,
@@ -583,6 +602,7 @@
 				CEC6CFD4170E315100500E1A /* RFImageToDataTransformer.m in Sources */,
 				CEC6CFD5170E315100500E1A /* XMPPIDTracker.m in Sources */,
 				CEC6CFD6170E315100500E1A /* XMPPSRVResolver.m in Sources */,
+				CE33B26F170F478F00B99DB9 /* KeyChaiHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

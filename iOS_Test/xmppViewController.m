@@ -8,25 +8,35 @@
 
 #import "xmppViewController.h"
 #import "KeyChaiHandler.h"
+#import "Chat.h"
 
 @interface xmppViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UILabel *passwordLabel;
-
+@property (strong, nonatomic) Chat *chat;
 @end
 
 @implementation xmppViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"Did load");
+    
+    [self.chat connect];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (Chat *)chat{
+    if(!_chat){
+        _chat = [[Chat alloc] init];
+    }
+    
+    return _chat;
 }
 
 - (IBAction)savePassword {

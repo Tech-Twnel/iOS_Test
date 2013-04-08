@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Chat : NSObject
-
+@property (readonly, strong, nonatomic)NSMutableArray *friends;
+@property (readonly, strong, nonatomic)NSMutableArray *messages;
 - (BOOL)connect;
-
+- (void)sendMessage:(NSString *)message to:(NSString *)receiver;
 @end

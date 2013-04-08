@@ -11,9 +11,27 @@
 
 @interface Chat()
 @property (strong, nonatomic) XMPPStream *xmppStream;
+@property (strong, nonatomic) NSMutableArray *friends;
+@property (strong, nonatomic) NSMutableArray *messages;
 @end
 
 @implementation Chat
+
+// Initialize online friends array.
+- (NSMutableArray *)friends{
+    if(!_friends){
+        _friends = [[NSMutableArray alloc] init];
+    }
+    return _friends;
+}
+
+// Initialize messages array.
+- (NSMutableArray *)messages{
+    if(!_messages){
+        _messages = [[NSMutableArray alloc] init];
+    }
+    return _messages;
+}
 
 // Initialize the stream.
 - (XMPPStream *)xmppStream{
@@ -60,11 +78,67 @@
     [self.xmppStream disconnect];
 }
 
+// Send a message.
+- (void)sendMessage:(NSString *)message to:(NSString *)receiver{
+    NSXMLElement *xmlBody = [NSXMLElement elementWithName:@"body"];
+    [xmlBody setStringValue:message];
+    NSXMLElement *xmlMessage = [NSXMLElement elementWithName:@"message"];
+    [xmlMessage addAttributeWithName:@"type" stringValue:@"chat"];
+    [xmlMessage addAttributeWithName:@"to" stringValue:receiver];
+    [xmlMessage addChild:xmlBody];
+    [self.xmppStream sendElement:xmlMessage];
+    
+    NSMutableDictionary *msgAsDictionary = [[NSMutableDictionary alloc] init];
+    [msgAsDictionary setObject:message forKey:@"message"];
+    [msgAsDictionary setObject:@"you" forKey:@"sender"];
+    [self.messages addObject:msgAsDictionary];
+    NSLog(@"From: You, Message: %@", message);
+    
+}
+
 // Protocol message, connection to the server successful.
-- (void) xmppStreamDidConnect: (XMPPStream *)sender{
+- (void)xmppStreamDidConnect: (XMPPStream *)sender{
     NSString *jabberPassword = @"+573105805315";
     NSError *err = nil;
-    [self.xmppStream authenticateWithPassword:jabberPassword error:&err];
+    if(![self.xmppStream authenticateWithPassword:jabberPassword error:&err]){
+        NSLog(@"error: %@", err);
+    } else{
+        NSLog(@"Authenticated");
+    }
+}
+
+// Protocol message, authentication sucessfull.
+- (void)xmppStreamDidAuthenticate:(XMPPStream *)sender{
+    [self goOnline];
+    NSLog(@"Status online");
+}
+
+// Protocol message, a friend went offline/online.
+- (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence{
+    NSString *presenceType = [presence type]; // Online/Offline
+    NSString *myJID = [[sender myJID] user];
+    NSString *fromJID = [[presence from] user];
+    
+    if(![fromJID isEqualToString:myJID]){
+        if([presenceType isEqualToString:@"available"]){
+            [self.friends addObject:fromJID];
+            NSLog(@"(online) %@", fromJID);
+        } else if([presenceType isEqualToString:@"unavailable"]){
+            [self.friends removeObject:fromJID];
+            NSLog(@"(offline) %@", fromJID);
+        }
+    }
+}
+
+// Protocol message, message received.
+- (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message{
+    NSString *msg = [[message elementForName:@"body"] stringValue];
+    NSString *from = [[message attributeForName:@"from"] stringValue];
+    NSMutableDictionary *msgAsDictionary = [[NSMutableDictionary alloc] init];
+    [msgAsDictionary setObject:msg forKey:@"message"];
+    [msgAsDictionary setObject:from forKey:@"sender"];
+    [self.messages addObject:msgAsDictionary];
+    NSLog(@"From: %@, Message: %@", from, msg);
 }
 
 @end

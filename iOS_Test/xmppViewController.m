@@ -11,9 +11,11 @@
 #import "Chat.h"
 
 @interface xmppViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *passwordField;
-@property (weak, nonatomic) IBOutlet UILabel *passwordLabel;
 @property (strong, nonatomic) Chat *chat;
+@property (weak, nonatomic) IBOutlet UITextView *onlineFriends;
+@property (weak, nonatomic) IBOutlet UITextView *messages;
+@property (weak, nonatomic) IBOutlet UITextField *toField;
+@property (weak, nonatomic) IBOutlet UITextField *messageField;
 @end
 
 @implementation xmppViewController
@@ -21,8 +23,6 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSLog(@"Did load");
-    
     [self.chat connect];
 }
 
@@ -39,13 +39,40 @@
     return _chat;
 }
 
-- (IBAction)savePassword {
-    NSString *password = self.passwordField.text;
-    BOOL comp = [KeyChaiHandler isEqualToStoredPassword:password];
-    BOOL err = [KeyChaiHandler storePassword:password];
+- (IBAction)refreshOnlineFriends{
+    NSMutableArray *friends = self.chat.friends;
+    NSString *resultString = @"";
     
-    self.passwordLabel.text = [NSString stringWithFormat:@"Compare: %u, Store: %u", comp, err];
+    for(NSString *friend in friends){
+        NSString *tmpString = [NSString stringWithFormat:@"%@\n", friend];
+        resultString = [resultString stringByAppendingString: tmpString];
+    }
+    self.onlineFriends.text = resultString;
     
+    NSMutableArray *messages = self.chat.messages;
+    resultString = @"";
+    for (NSString *message in messages) {
+        NSMutableDictionary *msg = (NSMutableDictionary *)message;
+        NSString *from = [msg objectForKey:@"sender"];
+        NSString *text = [msg objectForKey:@"message"];
+        NSString *tmpString = [NSString stringWithFormat:@"%@: %@", from, text];
+        resultString = [resultString stringByAppendingString:tmpString];
+    }
+    self.messages.text = resultString;
+    
+    [self.view endEditing:YES];
+}
+
+- (IBAction)sendMessage {
+    NSString *to = self.toField.text;
+    to = [to stringByAppendingString:@"@x.twnel.net"];
+    NSString *message = self.messageField.text;
+    
+    if([to length] > 0 && [message length] > 0){
+        [self.chat sendMessage:message to:to];
+    }
+    
+    [self.view endEditing:YES];
 }
 
 @end

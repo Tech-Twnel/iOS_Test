@@ -8,7 +8,6 @@
 //
 //  This class manages the storage of passwords inside the Keychain.
 //  Digital digest of the passwords are stored using the keys defined on Constants.h
-//
 
 #import <Foundation/Foundation.h>
 #import <Security/Security.h>

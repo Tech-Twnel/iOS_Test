@@ -8,6 +8,7 @@
 
 #import "xmppViewController.h"
 #import "KeyChaiHandler.h"
+#import "HTTPHandler.h"
 #import "Chat.h"
 
 @interface xmppViewController ()
@@ -16,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *messages;
 @property (weak, nonatomic) IBOutlet UITextField *toField;
 @property (weak, nonatomic) IBOutlet UITextField *messageField;
+@property (weak, nonatomic) IBOutlet UILabel *requestLabel;
+@property (strong, nonatomic) HTTPHandler *http;
 @end
 
 @implementation xmppViewController
@@ -73,6 +76,33 @@
     }
     
     [self.view endEditing:YES];
+}
+
+- (IBAction)requestPOST {
+    [self.http sendRequestWithData:@{}];
+}
+
+- (HTTPHandler *)http{
+    if(!_http){
+        NSURL *url = [NSURL URLWithString:@"http://10.11.13.120"];
+        _http = [[HTTPHandler alloc] initWithURL:url delegate:self];
+    }
+    return _http;
+}
+
+- (void)didFinishHTTPRequest:(HTTPHandler *)handler{
+    NSError *error = nil;
+    id response = [self.http getResponse:&error];
+    
+    if(response){
+        self.requestLabel.text = response[@"llave"];
+    } else{
+        NSLog(@"%@", error.userInfo[NSLocalizedDescriptionKey]);
+    }
+}
+
+- (void)errorReceived:(NSError *)error fromHTTPHandler:(HTTPHandler *)handler{
+    NSLog(@"%@", error.userInfo[NSLocalizedDescriptionKey]);
 }
 
 @end

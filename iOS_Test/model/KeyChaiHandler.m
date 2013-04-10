@@ -6,9 +6,11 @@
 //
 //  This class manages the storage of passwords inside the Keychain.
 //  Digital digest of the passwords are stored using the keys defined on Constants.h
-//
 
 #import "KeyChaiHandler.h"
+
+#pragma mark Keychain Store Interaction
+#pragma mark-
 
 // Used to give strength to digital digests.
 #define APP_HASH @"3548253696"
@@ -123,6 +125,9 @@
     SecItemDelete(dictionary);
 }
 
+#pragma mark-
+#pragma mark Cyphering Methods
+#pragma mark-
 // Return a digital digest assosiated with the given password.
 // App hash is used to construct the digest.
 + (NSString *)secSHA256DigestHash:(NSString *)password{
@@ -158,6 +163,9 @@
     return output;
 }
 
+#pragma mark-
+#pragma mark Public Utility Methods
+#pragma mark-
 // Compares the given password with the password stored on the keychain.
 + (BOOL)isEqualToStoredPassword:(NSString *)password{
     if ([[self keychainStringFromMatchingIdentifier:JABBER_PASSWORD] isEqualToString:[self secSHA256DigestHash:password]]) {

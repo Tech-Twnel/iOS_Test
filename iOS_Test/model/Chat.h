@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XMPP.h"
 
-@interface Chat : NSObject
+@interface Chat : NSObject <XMPPStreamDelegate>
 @property (readonly, strong, nonatomic)NSMutableArray *friends;
 @property (readonly, strong, nonatomic)NSMutableArray *messages;
 - (BOOL)connect;

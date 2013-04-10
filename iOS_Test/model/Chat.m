@@ -7,7 +7,6 @@
 //
 
 #import "Chat.h"
-#import "XMPP.h"
 
 @interface Chat()
 @property (strong, nonatomic) XMPPStream *xmppStream;

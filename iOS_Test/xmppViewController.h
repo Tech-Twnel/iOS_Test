@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HTTPHandler.h"
 
-@interface xmppViewController : UIViewController
+@interface xmppViewController : UIViewController <HTTPHandlerDelegate>
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57816DE51715C0E900DB930A /* HTTPHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 57816DE41715C0E900DB930A /* HTTPHandler.m */; };
 		CE0C4998170C992C000EBB04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0C4997170C992C000EBB04 /* UIKit.framework */; };
 		CE0C499A170C992C000EBB04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0C4999170C992C000EBB04 /* Foundation.framework */; };
 		CE0C499C170C992C000EBB04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0C499B170C992C000EBB04 /* CoreGraphics.framework */; };
@@ -63,6 +64,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57816DE31715C0E900DB930A /* HTTPHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPHandler.h; path = model/HTTPHandler.h; sourceTree = "<group>"; };
+		57816DE41715C0E900DB930A /* HTTPHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPHandler.m; path = model/HTTPHandler.m; sourceTree = "<group>"; };
 		CE0C4994170C992C000EBB04 /* iOS_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0C4997170C992C000EBB04 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE0C4999170C992C000EBB04 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -341,6 +344,8 @@
 				CE378AE71713367B00A1ACC8 /* Chat.m */,
 				CE33B26D170F478F00B99DB9 /* KeyChaiHandler.h */,
 				CE33B26E170F478F00B99DB9 /* KeyChaiHandler.m */,
+				57816DE31715C0E900DB930A /* HTTPHandler.h */,
+				57816DE41715C0E900DB930A /* HTTPHandler.m */,
 				CE9ADECB170F6C87006C8744 /* Constants.h */,
 			);
 			name = model;
@@ -605,6 +610,7 @@
 				CEC6CFD6170E315100500E1A /* XMPPSRVResolver.m in Sources */,
 				CE33B26F170F478F00B99DB9 /* KeyChaiHandler.m in Sources */,
 				CE378AE81713367B00A1ACC8 /* Chat.m in Sources */,
+				57816DE51715C0E900DB930A /* HTTPHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
